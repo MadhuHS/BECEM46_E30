@@ -38,18 +38,15 @@ Exception Handling
     alternate code
   }
   
-  try with multiple catch blocks
-  
- Exception e  = new ArithmeticException();
- Exception e2 = new ArrayIndexOutOfBoundsException(); 
+  * try with multiple catch blocks
   
   
-  Generalized try-catch block
+  * Generalized try-catch block
   
   
  finally block
  
- * finally block is executed irrespective of occurance of exceptions.
+ * finally block is executed irrespective of occurence of exceptions.
  * finally block should be written after the catch block.
   
   Exception are of 2 types
