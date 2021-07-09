@@ -33,6 +33,7 @@ public class Mainclass4
 		test(50,0);
 		test(50,2);
 		test(50,25);
+		
 		System.out.println("Program ends...");
 	}
 }

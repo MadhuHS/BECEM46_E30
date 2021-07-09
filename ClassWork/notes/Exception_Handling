@@ -51,8 +51,8 @@ Exception Handling
   
   Exception are of 2 types
 
-  1. Checked exception
-  2. Unchecked exception
+  1. Checked exception - Cant be avoided by using simple conditions with if-else we should write try-catch
+  2. Unchecked exception - Can be avoided by using simple conditions with if-else
   
   * Exceptions which are checked by the compiler at the compile time
     are called as checked exceptions.
