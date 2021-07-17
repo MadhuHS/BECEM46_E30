@@ -16,26 +16,27 @@ public class Mainclass3 {
 
 		return res;
 	}
+	
+	
+	public static String firstHalfSb(String str)
+	{
+		String res = "";
+		StringBuffer sb1 = new StringBuffer();
+		
+		for (int i = 0; i <= (str.length() - 1)/2; i++) 
+		{
+			char c1 = str.charAt(i);
+			sb1.append(c1);//concat
+		}
+        
+		res = sb1.toString();
+		return res;	
+	}
 
 	public static void main(String[] args)
 	{
 		String res = "";
-		for(int i=1; i<= 1000000000; i++)
-		{
-         res = firstHalf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println(res);
-        
-        res = firstHalf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println(res);
-        
-        res = firstHalf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println(res);
-        
-        res = firstHalf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println(res);
-        
-        res = firstHalf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println(res);
-		}
+		res = firstHalfSb("aaaa");
+	    System.out.println(res);
 	}
 }
