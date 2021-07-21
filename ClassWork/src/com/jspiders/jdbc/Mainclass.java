@@ -5,10 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class Mainclass 
 {
 	static Connection dbCon= null;
+	static Scanner scn = new Scanner(System.in);
 	
 	public static void openConnection() throws SQLException
 	{
@@ -54,6 +56,7 @@ public class Mainclass
 		}	
 	}
 	
+	
 	public static void main(String[] args)
 	{
 		System.out.println("Program starts...");
@@ -62,11 +65,26 @@ public class Mainclass
 		{
 			openConnection();
 			
+			System.out.println("enter user details");
+			
+			System.out.println("enter UID");
+			String uid =scn.next();
+			
+			System.out.println("enter Name");
+			String name =scn.next();
+			
+			System.out.println("enter email");
+			String email =scn.next();
+			
+			System.out.println("enter mob");
+			String mob =scn.next();
+			
 			User us1 = new User();
-			us1.setUid("US002");
-			us1.setName("ABD");
-			us1.setEmail("ABD@rcb.com");
-			us1.setMob("776717192");
+			
+			us1.setUid(uid);
+			us1.setName(name);
+			us1.setEmail(email);
+			us1.setMob(mob);
 			
 			insertUser(us1);
 			
