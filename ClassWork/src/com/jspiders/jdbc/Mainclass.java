@@ -32,12 +32,33 @@ public class Mainclass
 	
 	
 	
-	public static void insertUser(User us)
+	public static void insertUser()
 	{
 		//Create --> Insert
 		 String insertUserQuery = "insert into PracticeDB.User values(?,?,?,?)";
 		//Statement stmt = dbCon.createStatement();
-		
+		 System.out.println("enter user details");
+			
+			System.out.println("enter UID");
+			String uid =scn.next();
+			
+			System.out.println("enter Name");
+			String name =scn.next();
+			
+			System.out.println("enter email");
+			String email =scn.next();
+			
+			System.out.println("enter mob");
+			String mob =scn.next();
+			
+			User us = new User();
+			
+			us.setUid(uid);
+			us.setName(name);
+			us.setEmail(email);
+			us.setMob(mob);
+			
+			
 		PreparedStatement prstmt;
 		try {
 			prstmt = dbCon.prepareStatement(insertUserQuery);
@@ -52,8 +73,35 @@ public class Mainclass
 		}
 		catch (SQLException e)
 		{
+			e.printStackTrace();
 			System.out.println("OOPS!! User already exists in the App");
 		}	
+	}
+	
+	public static void updateUserEmail(String uid,String newEamil)
+	{
+		String updateEmailQuery = "update PracticeDB.User set email = ? where UID = ?";
+		try
+		{
+			PreparedStatement pstmt = dbCon.prepareStatement(updateEmailQuery);
+			pstmt.setString(1, newEamil);
+			pstmt.setString(2, uid);
+			
+			int count = pstmt.executeUpdate();
+			
+			if(count > 0)
+			{
+			 System.out.println("emailID updated for the user "+uid);
+			}
+			else
+			{
+				System.out.println("ERROR : "+uid + " DOES NOT EXIST IN THE SYSTEM!!!");
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -65,28 +113,7 @@ public class Mainclass
 		{
 			openConnection();
 			
-			System.out.println("enter user details");
-			
-			System.out.println("enter UID");
-			String uid =scn.next();
-			
-			System.out.println("enter Name");
-			String name =scn.next();
-			
-			System.out.println("enter email");
-			String email =scn.next();
-			
-			System.out.println("enter mob");
-			String mob =scn.next();
-			
-			User us1 = new User();
-			
-			us1.setUid(uid);
-			us1.setName(name);
-			us1.setEmail(email);
-			us1.setMob(mob);
-			
-			insertUser(us1);
+			updateUserEmail("us089","aa@gmail.com");
 			
 			closeConnection();
 		}
