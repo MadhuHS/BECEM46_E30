@@ -1,0 +1,10 @@
+insert into PracticeDB.User (uid, name, email, mob) values ('aweatherup0', 'Alverta', 'aorth0@tinyurl.com', '339-647-8289');
+insert into PracticeDB.User (uid, name, email, mob) values ('wbrannon1', 'Wendel', 'wduerden1@woothemes.com', '260-876-1221');
+insert into PracticeDB.User (uid, name, email, mob) values ('ggainsburgh2', 'Georges', 'gsibery2@wired.com', '675-818-9053');
+insert into PracticeDB.User (uid, name, email, mob) values ('dgrene3', 'Dinah', 'dgritland3@cafepress.com', '264-485-7009');
+insert into PracticeDB.User (uid, name, email, mob) values ('jhonywill4', 'Jessee', 'jgorhardt4@123-reg.co.uk', '896-738-1414');
+insert into PracticeDB.User (uid, name, email, mob) values ('cgalfour5', 'Clarinda', 'cmount5@ucoz.com', '890-333-7254');
+insert into PracticeDB.User (uid, name, email, mob) values ('bivanyushin6', 'Bryan', 'bascrofte6@thetimes.co.uk', '915-212-7277');
+insert into PracticeDB.User (uid, name, email, mob) values ('rdubock7', 'Ramsay', 'rduxbarry7@umich.edu', '688-859-9131');
+insert into PracticeDB.User (uid, name, email, mob) values ('sstobo8', 'Sandye', 'swakley8@seesaa.net', '489-855-4457');
+insert into PracticeDB.User (uid, name, email, mob) values ('cvonderempten9', 'Cornelius', 'chastewell9@php.net', '203-678-7479');

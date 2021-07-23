@@ -132,6 +132,31 @@ public class Mainclass {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void showAllUsers() {
+		String selectUserQuery = "Select * from PracticeDB.User";
+
+		try
+		{
+			PreparedStatement psm = dbCon.prepareStatement(selectUserQuery);
+			ResultSet rs = psm.executeQuery();
+			
+			while(rs.next())
+			{
+			  String usid = rs.getString("UID");
+			  String name = rs.getString("name");
+			  String email = rs.getString("email");
+			  String mob = rs.getString("mob");
+			
+			  System.out.println(usid +" "+name+ " "+email+" "+mob);
+			  System.out.println();
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Program starts...");
@@ -139,7 +164,7 @@ public class Mainclass {
 		try {
 			openConnection();
 
-			showUser("US002");
+			showAllUsers();
 
 			closeConnection();
 		} catch (SQLException e) {
