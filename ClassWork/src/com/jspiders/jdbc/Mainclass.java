@@ -3,6 +3,7 @@ package com.jspiders.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -90,27 +91,46 @@ public class Mainclass {
 	public static void deleteUser(String uid) {
 		String deleteUserQuery = "delete from PracticeDB.User where uid = ?";
 
-		try 
-		{
+		try {
 			PreparedStatement psm = dbCon.prepareStatement(deleteUserQuery);
-			
+
 			psm.setString(1, uid);
 			int count = psm.executeUpdate();
+
+			if (count > 0) {
+				System.out.println("User with UID : " + uid + " deleted");
+			} else {
+				System.out.println("User with UID : " + uid + " CANNOT be deleted");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void showUser(String uid) {
+		String selectUserQuery = "Select * from PracticeDB.User where uid = ? ";
+
+		try
+		{
+			PreparedStatement psm = dbCon.prepareStatement(selectUserQuery);
+			psm.setString(1, uid);
+			ResultSet rs = psm.executeQuery();
 			
-			if(count > 0)
-			{
-				System.out.println("User with UID : "+uid+ " deleted");
-			}
-			else
-			{
-				System.out.println("User with UID : "+uid+ " CANNOT be deleted");
-			}
+			rs.next();
+			String usid = rs.getString("UID");
+			String name = rs.getString("name");
+			String email = rs.getString("email");
+			String mob = rs.getString("mob");
+			
+			System.out.println(usid);
+			System.out.println(name);
+			System.out.println(email);
+			System.out.println(mob);
 		} 
 		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
-
 	}
 
 	public static void main(String[] args) {
@@ -119,7 +139,7 @@ public class Mainclass {
 		try {
 			openConnection();
 
-			deleteUser("us003");
+			showUser("US002");
 
 			closeConnection();
 		} catch (SQLException e) {
