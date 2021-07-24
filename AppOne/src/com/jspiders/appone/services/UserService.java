@@ -2,7 +2,7 @@ package com.jspiders.appone.services;
 
 public class UserService {
 
-
+	//add user
 	public void addUser() {
 
 	}
