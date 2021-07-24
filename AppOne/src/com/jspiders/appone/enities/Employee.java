@@ -2,19 +2,19 @@ package com.jspiders.appone.enities;
 
 public class Employee {
 
-    private String empID;
-	private String empFirstName;
-	private String empLastName;
-	private String empDateofBirth;
-	private String empDateofJoining;
+    private String  empID;
+	private String  empFirstName;
+	private String  empLastName;
+	private String  empDateofBirth;
+	private String  empDateofJoining;
 	private Integer empDeptID;
-	private String empGrade;
-	private String empDesignation;
+	private String  empGrade;
+	private String  empDesignation;
 	private Integer empBasic;
-	private String empGender;
-	private String empMaritalStatus;
-	private String empHomeAddress;
-	private String empContactNum;
+	private String  empGender;
+	private String  empMaritalStatus;
+	private String  empHomeAddress;
+	private String  empContactNum;
 
 	public Employee(String empID, String empFirstName, String empLastName, String empDateofBirth,
 			String empDateofJoining, Integer empDeptID, String empGrade, String empDesignation, Integer empBasic,
