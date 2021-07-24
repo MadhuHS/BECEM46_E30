@@ -1,12 +1,14 @@
 package com.jspiders.appone.enities;
 
+import java.sql.Date;
+
 public class Employee {
 
-    private String  empID;
+    private Integer  empID;
 	private String  empFirstName;
 	private String  empLastName;
-	private String  empDateofBirth;
-	private String  empDateofJoining;
+	private Date  empDateofBirth;
+	private Date  empDateofJoining;
 	private Integer empDeptID;
 	private String  empGrade;
 	private String  empDesignation;
@@ -15,9 +17,15 @@ public class Employee {
 	private String  empMaritalStatus;
 	private String  empHomeAddress;
 	private String  empContactNum;
+	
+	
+	public Employee()
+	{
+		
+	}
 
-	public Employee(String empID, String empFirstName, String empLastName, String empDateofBirth,
-			String empDateofJoining, Integer empDeptID, String empGrade, String empDesignation, Integer empBasic,
+	public Employee(Integer empID, String empFirstName, String empLastName, Date empDateofBirth,
+			Date empDateofJoining, Integer empDeptID, String empGrade, String empDesignation, Integer empBasic,
 			String empGender, String empMaritalStatus, String empHomeAddress, String empContactNum) {
 		super();
 		this.empID = empID;
@@ -35,11 +43,11 @@ public class Employee {
 		this.empContactNum = empContactNum;
 	}
 
-	public String getEmpID() {
+	public Integer getEmpID() {
 		return empID;
 	}
 
-	public void setEmpID(String empID) {
+	public void setEmpID(Integer empID) {
 		this.empID = empID;
 	}
 
@@ -59,19 +67,19 @@ public class Employee {
 		this.empLastName = empLastName;
 	}
 
-	public String getEmpDateofBirth() {
+	public Date getEmpDateofBirth() {
 		return empDateofBirth;
 	}
 
-	public void setEmpDateofBirth(String empDateofBirth) {
+	public void setEmpDateofBirth(Date empDateofBirth) {
 		this.empDateofBirth = empDateofBirth;
 	}
 
-	public String getEmpDateofJoining() {
+	public Date getEmpDateofJoining() {
 		return empDateofJoining;
 	}
 
-	public void setEmpDateofJoining(String empDateofJoining) {
+	public void setEmpDateofJoining(Date empDateofJoining) {
 		this.empDateofJoining = empDateofJoining;
 	}
 
