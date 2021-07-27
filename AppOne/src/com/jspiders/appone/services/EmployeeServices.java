@@ -12,10 +12,6 @@ public class EmployeeServices
 	
 	public void addEmployee(Employee emp)throws SQLException
 	{
-      System.out.println("adding employee");
-      System.out.println(emp.getEmpFirstName());
-      System.out.println(emp.getEmpLastName());
-      
       Database db = dbMgr.getDB("Employee");
       
       db.connect();//open connection to DB
@@ -26,8 +22,16 @@ public class EmployeeServices
       
 	}
 
-	public void UpdateEmployee() {
-
+	public void UpdateEmployee(Employee emp)throws SQLException
+	{
+      Database db = dbMgr.getDB("Employee");
+      
+      db.connect();//open connection to DB
+      
+      db.update(emp);
+      
+      db.disconnect();//close connection of DB
+      
 	}
 
 	public void viewEmployee() {
@@ -42,3 +46,6 @@ public class EmployeeServices
 
 	}
 }
+
+
+

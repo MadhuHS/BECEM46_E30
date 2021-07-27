@@ -38,12 +38,34 @@ public class AppOneTest
 		
 		es.addEmployee(emp);
 	}
+	
+
+	public static void empUpdateTest()throws SQLException 
+	{
+		EmployeeServices es = new EmployeeServices();
+		
+		Employee emp = new Employee();
+		
+		emp.setEmpID(9);
+		emp.setEmpFirstName("AB");
+		emp.setEmpLastName("DEV");
+		emp.setEmpDeptID(1);
+		emp.setEmpBasic(0);
+		emp.setEmpContactNum("9876543210");
+		emp.setEmpDesignation("MANAGER");
+		emp.setEmpGrade("m1");
+		emp.setEmpGender("M");
+		emp.setEmpMaritalStatus("S");
+		emp.setEmpHomeAddress("Bangalore");
+		
+		es.UpdateEmployee(emp);
+	}
 
 	public static void main(String[] args)
 	{
 		try 
 		{
-			empAddTest();
+			empUpdateTest();
 		} 
 		catch (SQLException e)
 		{

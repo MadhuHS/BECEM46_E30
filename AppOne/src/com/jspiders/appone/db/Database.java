@@ -10,7 +10,7 @@ public interface Database
    
    public void insert(Employee emp) throws SQLException;
    public void read()throws SQLException;
-   public void update()throws SQLException;
+   public void update(Employee emp)throws SQLException;
    public void delete()throws SQLException;
    public void readAll()throws SQLException;
    

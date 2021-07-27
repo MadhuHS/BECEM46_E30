@@ -57,8 +57,29 @@ public class EmployeeDB implements Database {
 	}
 
 	@Override
-	public void update() {
-
+	public void update(Employee emp)throws SQLException
+	{
+		 prStmt = dbCon.prepareStatement(EmpQueries.updateQuery);
+	      
+	      prStmt.setString(1,emp.getEmpFirstName());
+	      prStmt.setString(2,emp.getEmpLastName());
+	      prStmt.setInt(3,emp.getEmpBasic());
+	      prStmt.setString(4,emp.getEmpGrade());
+	      prStmt.setInt(5,emp.getEmpDeptID());
+	      prStmt.setString(6,emp.getEmpDesignation());
+	      prStmt.setString(7,emp.getEmpGender());
+	      prStmt.setString(8,emp.getEmpMaritalStatus());
+	      prStmt.setString(9,emp.getEmpHomeAddress());
+	      prStmt.setString(10,emp.getEmpContactNum());
+	      prStmt.setInt(11,emp.getEmpID());
+	      
+	      System.out.println(prStmt);
+	      
+	      int count = prStmt.executeUpdate();
+	      
+	      System.out.println(count+" record updated");
+	      
+	      
 	}
 
 	@Override
