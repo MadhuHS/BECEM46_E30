@@ -34,8 +34,17 @@ public class EmployeeServices
       
 	}
 
-	public void viewEmployee() {
-
+	public Employee viewEmployee(Integer id) throws SQLException
+	{
+		Database db = dbMgr.getDB("Employee");
+	      
+	      db.connect();//open connection to DB
+	      
+	      Employee emp = db.read(id);
+	      
+	      db.disconnect();//close connection of DB
+	      
+       return emp;
 	}
 
 	public void viewEmployees() {

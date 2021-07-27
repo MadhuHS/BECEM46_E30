@@ -22,12 +22,12 @@ public class AppOneTest
 		
 		Employee emp = new Employee();
 		
-		emp.setEmpID(1);
-		emp.setEmpFirstName("Virat");
-		emp.setEmpLastName("Kholi");
+		emp.setEmpID(90);
+		emp.setEmpFirstName("Arun");
+		emp.setEmpLastName("M");
 		emp.setEmpDeptID(1);
 		emp.setEmpBasic(0);
-		emp.setEmpContactNum("9989918181");
+		emp.setEmpContactNum("787819281");
 		emp.setEmpDateofBirth(new Date(111997));
 		emp.setEmpDateofJoining(new Date(21242021));
 		emp.setEmpDesignation("intern");
@@ -60,12 +60,19 @@ public class AppOneTest
 		
 		es.UpdateEmployee(emp);
 	}
+	
+	public static void getEmployee()throws SQLException
+	{
+		EmployeeServices es = new EmployeeServices();
+		Employee emp = es.viewEmployee(9);
+		System.out.println(emp);
+	}
 
 	public static void main(String[] args)
 	{
 		try 
 		{
-			empUpdateTest();
+			getEmployee();
 		} 
 		catch (SQLException e)
 		{

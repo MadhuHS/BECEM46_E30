@@ -3,6 +3,7 @@ package com.jspiders.appone.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.jspiders.appone.enities.Employee;
@@ -52,8 +53,38 @@ public class EmployeeDB implements Database {
 	}
 
 	@Override
-	public void read() {
-
+	public Employee read(Integer id)throws SQLException
+	{
+       prStmt = dbCon.prepareStatement(EmpQueries.selectQuery);
+       prStmt.setInt(1, id);
+       
+       ResultSet rs = prStmt.executeQuery();
+       
+       rs.next();
+       
+       /*Integer empid = rs.getInt("Emp_ID");
+       String firstname = rs.getString("Emp_First_Name");
+       String lastname = rs.getString("Emp_Last_Name");
+       String grade = rs.getString("Emp_Grade");
+       String desg = rs.getString("Emp_Designation");*/
+       
+       Employee emp = new Employee();
+       
+       emp.setEmpID(rs.getInt("Emp_ID"));
+       emp.setEmpFirstName(rs.getString("Emp_First_Name"));
+       emp.setEmpLastName(rs.getString("Emp_Last_Name"));
+       emp.setEmpGrade(rs.getString("Emp_Grade"));
+       emp.setEmpDesignation(rs.getString("Emp_Designation"));
+       
+       
+       prStmt = dbCon.prepareStatement(EmpQueries.selectDeptNameQuery);
+       prStmt.setInt(1, rs.getInt("EmP_Dept_ID"));
+       
+       ResultSet rs2 = prStmt.executeQuery();
+       rs2.next();
+       String deptName = rs2.getString("Dept_Name");
+       
+       return emp;
 	}
 
 	@Override
@@ -84,7 +115,7 @@ public class EmployeeDB implements Database {
 
 	@Override
 	public void delete() {
-
+      //left as assignment
 	}
 
 	@Override
