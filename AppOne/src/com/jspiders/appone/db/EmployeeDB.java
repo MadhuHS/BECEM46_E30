@@ -78,13 +78,21 @@ public class EmployeeDB implements Database {
        
        
        prStmt = dbCon.prepareStatement(EmpQueries.selectDeptNameQuery);
-       prStmt.setInt(1, rs.getInt("EmP_Dept_ID"));
+       prStmt.setInt(1, rs.getInt("Emp_Dept_ID"));
        
        ResultSet rs2 = prStmt.executeQuery();
        rs2.next();
        String deptName = rs2.getString("Dept_Name");
        
+       emp.setEmpDepartmentName(deptName);
+       
        return emp;
+	}
+	
+	@Override
+	public void readAll() throws SQLException
+	{
+		
 	}
 
 	@Override
@@ -131,10 +139,6 @@ public class EmployeeDB implements Database {
 		}
 	}
 
-	@Override
-	public void readAll() throws SQLException
-	{
-		
-	}
+	
 
 }

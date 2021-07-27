@@ -65,7 +65,7 @@ public class AppOneTest
 	{
 		EmployeeServices es = new EmployeeServices();
 		Employee emp = es.viewEmployee(9);
-		System.out.println(emp);
+		System.out.println(emp.toString());
 	}
 
 	public static void main(String[] args)

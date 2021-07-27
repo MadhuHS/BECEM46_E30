@@ -17,6 +17,7 @@ public class Employee {
 	private String  empMaritalStatus;
 	private String  empHomeAddress;
 	private String  empContactNum;
+	private String empDepartmentName;
 	
 	
 	public Employee()
@@ -146,5 +147,22 @@ public class Employee {
 	public void setEmpContactNum(String empContactNum) {
 		this.empContactNum = empContactNum;
 	}
+	
+	public String getEmpDepartmentName() {
+		return empDepartmentName;
+	}
+
+	public void setEmpDepartmentName(String empDepartmentName) {
+		this.empDepartmentName = empDepartmentName;
+	}
+	
+	@Override
+	public String toString()
+	{
+		String info = empID+" "+empFirstName +" "+empLastName+" "+empDepartmentName+" "+empGrade+" "+empDesignation;
+		return info;
+	}
+
+	
 
 }
