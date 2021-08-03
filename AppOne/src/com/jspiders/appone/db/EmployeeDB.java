@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.jspiders.appone.enities.Employee;
 
@@ -90,9 +91,39 @@ public class EmployeeDB implements Database {
 	}
 	
 	@Override
-	public void readAll() throws SQLException
+	public ArrayList<Employee> readAll() throws SQLException
 	{
-		
+		prStmt = dbCon.prepareStatement(EmpQueries.selectAllEmpQuery);
+	    
+		ResultSet rs = prStmt.executeQuery();
+	    
+	    ArrayList<Employee> empList = new ArrayList<Employee>();
+	       
+	       while(rs.next())
+	       {
+	       
+	         Employee emp = new Employee();
+	       
+	         emp.setEmpID(rs.getInt("Emp_ID"));
+	         emp.setEmpFirstName(rs.getString("Emp_First_Name"));
+	         emp.setEmpLastName(rs.getString("Emp_Last_Name"));
+	         emp.setEmpGrade(rs.getString("Emp_Grade"));
+	         emp.setEmpDesignation(rs.getString("Emp_Designation"));
+	       
+	         prStmt = dbCon.prepareStatement(EmpQueries.selectDeptNameQuery);
+	         prStmt.setInt(1, rs.getInt("Emp_Dept_ID"));
+	       
+	         ResultSet rs2 = prStmt.executeQuery();
+	         rs2.next();
+	         String deptName = rs2.getString("Dept_Name");
+	       
+	         emp.setEmpDepartmentName(deptName);
+	         
+	         empList.add(emp);
+	        
+	       }
+	       
+	       return empList;
 	}
 
 	@Override

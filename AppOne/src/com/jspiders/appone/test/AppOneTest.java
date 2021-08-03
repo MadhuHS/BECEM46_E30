@@ -2,6 +2,7 @@ package com.jspiders.appone.test;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.jspiders.appone.db.EmployeeDB;
 import com.jspiders.appone.enities.Employee;
@@ -9,6 +10,7 @@ import com.jspiders.appone.services.EmployeeServices;
 
 public class AppOneTest 
 {
+	static EmployeeServices es = new EmployeeServices();
 	public static void empDbTest() 
 	{
 		EmployeeDB edb = new EmployeeDB();
@@ -18,8 +20,6 @@ public class AppOneTest
 	
 	public static void empAddTest()throws SQLException 
 	{
-		EmployeeServices es = new EmployeeServices();
-		
 		Employee emp = new Employee();
 		
 		emp.setEmpID(90);
@@ -42,7 +42,6 @@ public class AppOneTest
 
 	public static void empUpdateTest()throws SQLException 
 	{
-		EmployeeServices es = new EmployeeServices();
 		
 		Employee emp = new Employee();
 		
@@ -63,16 +62,26 @@ public class AppOneTest
 	
 	public static void getEmployee()throws SQLException
 	{
-		EmployeeServices es = new EmployeeServices();
 		Employee emp = es.viewEmployee(9);
 		System.out.println(emp.toString());
+	}
+	
+
+	public static void getAllEmployees()throws SQLException
+	{
+		ArrayList<Employee> emplist = es.viewEmployees();
+		
+		for (int i = 0; i <emplist.size() ; i++)
+		{
+			System.out.println(emplist.get(i));
+		}
 	}
 
 	public static void main(String[] args)
 	{
 		try 
 		{
-			getEmployee();
+			getAllEmployees();
 		} 
 		catch (SQLException e)
 		{
