@@ -162,7 +162,33 @@ public class Employee {
 		String info = empID+" "+empFirstName +" "+empLastName+" "+empDepartmentName+" "+empGrade+" "+empDesignation;
 		return info;
 	}
+	
+	@Override
+	public int hashCode() {
+		
+		return empID;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		Employee emp1 = (Employee) obj;
+		
+		if(emp1.empID == this.empID ||
+				emp1.empContactNum.equals(this.empContactNum))
+		{
+			return true;//reject
+		}
+		
+		return false;//accept
+	}
 
 	
 
 }
+
+
+
+
+
+

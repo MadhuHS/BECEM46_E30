@@ -15,5 +15,7 @@ public interface Database
    public void delete()throws SQLException;
    public List<Employee> readAll()throws SQLException;
    
+   public void insertAll(List<Employee> elist)throws SQLException;
+   
    public void disconnect();
 }

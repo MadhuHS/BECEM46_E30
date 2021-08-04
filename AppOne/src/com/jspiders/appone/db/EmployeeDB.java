@@ -152,6 +152,17 @@ public class EmployeeDB implements Database {
 	      
 	      
 	}
+	
+	@Override
+	public void insertAll(List<Employee> elist) throws SQLException
+	{
+		for(int i=0; i<elist.size(); i++)
+		{
+			Employee emp = elist.get(i);//get one employee object
+			System.out.println("adding "+emp);
+			insert(emp);//insert to db
+		}
+	}
 
 	@Override
 	public void delete() {
@@ -170,6 +181,8 @@ public class EmployeeDB implements Database {
 			e.printStackTrace();
 		}
 	}
+
+	
 
 	
 

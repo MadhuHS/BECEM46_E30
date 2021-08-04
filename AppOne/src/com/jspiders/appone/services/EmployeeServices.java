@@ -1,6 +1,8 @@
 package com.jspiders.appone.services;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import com.jspiders.appone.db.DataBaseManager;
@@ -58,6 +60,26 @@ public class EmployeeServices {
 		return emplist;
 
 	}
+	
+	public void addAllEmployees(List<Employee> emplist) throws SQLException {
+		Database db = dbMgr.getDB("Employee");
+
+		db.connect();// open connection to DB
+		
+		HashSet<Employee> hs1 =  new HashSet<Employee>(emplist);//remove all duplicates in emplist
+		
+		ArrayList<Employee> newEmplist = new ArrayList<Employee>(hs1);//convert hashSet to ArrayList
+		
+		System.out.println(emplist);
+		System.out.println("HASHSET : "+hs1);
+		System.out.println(newEmplist);
+		
+		db.insertAll(newEmplist);
+
+		db.disconnect();// close connection of DB
+
+	}
+
 
 	public void viewEmployeesByDept(int deptId) {
 
