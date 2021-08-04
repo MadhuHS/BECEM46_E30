@@ -1,7 +1,7 @@
 package com.jspiders.appone.services;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 import com.jspiders.appone.db.DataBaseManager;
 import com.jspiders.appone.db.Database;
@@ -45,13 +45,13 @@ public class EmployeeServices {
 		return emp;
 	}
 
-	public ArrayList<Employee> viewEmployees() throws SQLException {
+	public List<Employee> viewEmployees() throws SQLException {
 		
 		Database db = dbMgr.getDB("Employee");
 
 		db.connect();// open connection to DB
 
-		ArrayList<Employee> emplist = db.readAll();
+		List<Employee> emplist = db.readAll();
 
 		db.disconnect();// close connection of DB
 		

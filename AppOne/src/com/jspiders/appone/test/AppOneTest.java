@@ -2,7 +2,7 @@ package com.jspiders.appone.test;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 import com.jspiders.appone.db.EmployeeDB;
 import com.jspiders.appone.enities.Employee;
@@ -69,7 +69,7 @@ public class AppOneTest
 
 	public static void getAllEmployees()throws SQLException
 	{
-		ArrayList<Employee> emplist = es.viewEmployees();
+		List<Employee> emplist = es.viewEmployees();
 		
 		for (int i = 0; i <emplist.size() ; i++)
 		{

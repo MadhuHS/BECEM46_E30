@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.jspiders.appone.enities.Employee;
 
@@ -91,13 +92,13 @@ public class EmployeeDB implements Database {
 	}
 	
 	@Override
-	public ArrayList<Employee> readAll() throws SQLException
+	public List<Employee> readAll() throws SQLException
 	{
 		prStmt = dbCon.prepareStatement(EmpQueries.selectAllEmpQuery);
 	    
 		ResultSet rs = prStmt.executeQuery();
 	    
-	    ArrayList<Employee> empList = new ArrayList<Employee>();
+	    List<Employee> empList = new ArrayList<Employee>();
 	       
 	       while(rs.next())
 	       {
